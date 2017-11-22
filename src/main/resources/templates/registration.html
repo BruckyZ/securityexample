@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="www.w3.org/1999/xhtml" xmlns:th="www.thymeleaf.org"
+      xmlns:sec="www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Security Example</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous"/>
+
+    <link rel="stylesheet" href="/css/Style.css"/>
+
+</head>
+<body>
+<h4> New user</h4>
+
+    <form autocomplete="off" action="#" th:action="@{/register}"
+                          th:object="${user}" method="post">
+
+                        First Name<mark><strong>
+    <span th:if="${#fields.hasErrors('firstName')}"
+          th:error="*{firstName}"> First Name Error </span>
+                    </strong></mark>
+                        <input type="text" id="firstName" placeholder="First Name"
+                               th:field="*{firstName}"/><br/>
+
+        Last Name<mark><strong>
+    <span th:if="${#fields.hasErrors('lastName')}"
+          th:error="*{lastName}"> First Name Error </span>
+    </strong></mark>
+        <input type="text" id="lastName" placeholder="last Name"
+               th:field="*{lastName}"/><br/>
+
+        Email<mark><strong>
+    <span th:if="${#fields.hasErrors('email')}"
+          th:error="*{email}"> First Name Error </span>
+    </strong></mark>
+        <input type="text" id="email" placeholder="email"
+               th:field="*{email}"/><br/>
+
+        Username<mark><strong>
+    <span th:if="${#fields.hasErrors('username')}"
+          th:error="*{username}"> First Name Error </span>
+    </strong></mark>
+        <input type="text" id="userName" placeholder="user Name"
+               th:field="*{username}"/><br/>
+
+        Password<mark><strong>
+    <span th:if="${#fields.hasErrors('password')}"
+          th:error="*{password}"> First Name Error </span>
+    </strong></mark>
+        <input type="text" id="password" placeholder="password"
+               th:field="*{password}"/><br/>
+
+        <button type="submit" class="btn btn-default"> Submit</button>
+    </form>
+</body>
+</html>
